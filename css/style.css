@@ -7,11 +7,33 @@
     display:none;
 }
 
+@media (max-width: 360px) {
+    #gameover { font-size: 36px; }
+}
+@media (min-width: 361px) {
+    #gameover { font-size: 10vh; }
+}
+
+@media (max-width: 360px) {
+    #myButton { font-size: 36px; }
+}
+@media (min-width: 361px) {
+    #myButton { font-size: 10vh; }
+}
+#gameover{
+    display:none;
+    align-self:center;
+    
+    color: #fff;
+    margin:20px;
+
+
+
+}
 
 #myButton{
     align-self:center;
      /* margin-top:5vh; */
-    font-size: 70px;
     background-color:#0a0a23;
     color: #fff;
     border:2px solid white;

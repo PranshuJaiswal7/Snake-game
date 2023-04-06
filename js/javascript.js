@@ -46,35 +46,35 @@ function gameEngine() {
         gameover.play();
         // ksound.pause();
         idir = { x: 0, y: 0 }
-        alert("Game Over! Press any key to play again!");
-        el = document.documentElement
-                , rfs =
-                el.requestFullScreen
-                || el.webkitRequestFullScreen
-                || el.mozRequestFullScreen
-                ;
-            rfs.call(el);
-        window.addEventListener('keydown', e => {
-            el = document.documentElement
-                , rfs =
-                el.requestFullScreen
-                || el.webkitRequestFullScreen
-                || el.mozRequestFullScreen
-                ;
-            rfs.call(el);
+        document.getElementById("board").style.display = "none";
+        document.getElementById("myButton").style.display = "block";
+        document.getElementById("game").style.display = "none";
+        document.getElementById("gameover").style.display = "block"
+        // alert("Game Over! Press any key to play again!");
+        
 
-        })
 
-        window.addEventListener('click', e => {
-            el = document.documentElement
-                , rfs =
-                el.requestFullScreen
-                || el.webkitRequestFullScreen
-                || el.mozRequestFullScreen
-                ;
-            rfs.call(el);
+        // window.addEventListener('keydown', e => {
+        //     el = document.documentElement
+        //         , rfs =
+        //         el.requestFullScreen
+        //         || el.webkitRequestFullScreen
+        //         || el.mozRequestFullScreen
+        //         ;
+        //     rfs.call(el);
 
-        })
+        // })
+
+        // window.addEventListener('click', e => {
+        //     el = document.documentElement
+        //         , rfs =
+        //         el.requestFullScreen
+        //         || el.webkitRequestFullScreen
+        //         || el.mozRequestFullScreen
+        //         ;
+        //     rfs.call(el);
+
+        // })
          
         snakearr = [{ x: 12, y: 10 }]
         // ksound.play();
@@ -248,15 +248,15 @@ document.addEventListener('touchstart', function (event) {
 rfs.call(el);
 });
 
-document.addEventListener('touchend', function (event) {
-    el = document.documentElement
-    , rfs =
-    el.requestFullScreen
-    || el.webkitRequestFullScreen
-    || el.mozRequestFullScreen
-    ;
-rfs.call(el);
-});
+// document.addEventListener('touchend', function (event) {
+//     el = document.documentElement
+//     , rfs =
+//     el.requestFullScreen
+//     || el.webkitRequestFullScreen
+//     || el.mozRequestFullScreen
+//     ;
+// rfs.call(el);
+// });
 
 
 document.addEventListener('touchmove', function (event) {
