@@ -47,6 +47,13 @@ function gameEngine() {
         // ksound.pause();
         idir = { x: 0, y: 0 }
         alert("Game Over! Press any key to play again!");
+        el = document.documentElement
+                , rfs =
+                el.requestFullScreen
+                || el.webkitRequestFullScreen
+                || el.mozRequestFullScreen
+                ;
+            rfs.call(el);
         window.addEventListener('keydown', e => {
             el = document.documentElement
                 , rfs =
