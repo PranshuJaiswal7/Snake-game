@@ -4,7 +4,7 @@ const foodsound = new Audio("music/food.mp3");
 const gameover = new Audio("music/gameover.mp3");
 const movesound = new Audio("music/move.mp3");
 const ksound = new Audio("music/bg.mp3");
-let speed = 9;
+let speed =7;
 let score = 0;
 let lastpaint = 0;
 let snakearr = [{ x: 12, y: 10 }]
@@ -201,6 +201,48 @@ window.addEventListener('keydown', e => {
 
 })
 
+
+
+
+//Handle touch swipe
+var touchStartX, touchStartY;
+
+document.addEventListener('touchstart', function(event) {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+});
+
+document.addEventListener('touchmove', function(event) {
+    var touchEndX = event.touches[0].clientX;
+    var touchEndY = event.touches[0].clientY;
+    
+    var dx = touchEndX - touchStartX;
+    var dy = touchEndY - touchStartY;
+    
+    if (Math.abs(dx) > Math.abs(dy)) {
+        if(dx>0){
+            idir.x = 1;
+            idir.y = 0;
+        }
+        else if(dx<0){
+            idir.x = -1;
+            idir.y = 0;
+        }
+
+        
+    } else {
+        if(dy>0){
+            idir.y = 1;
+            idir.x = 0;
+        }
+        else if(dy<0){
+            idir.y = -1;
+            idir.x = 0;
+        }
+    }
+
+}
+)
 
 
 
