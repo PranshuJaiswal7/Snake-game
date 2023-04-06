@@ -248,6 +248,17 @@ document.addEventListener('touchstart', function (event) {
 rfs.call(el);
 });
 
+document.addEventListener('touchend', function (event) {
+    el = document.documentElement
+    , rfs =
+    el.requestFullScreen
+    || el.webkitRequestFullScreen
+    || el.mozRequestFullScreen
+    ;
+rfs.call(el);
+});
+
+
 document.addEventListener('touchmove', function (event) {
     var touchEndX = event.touches[0].clientX;
     var touchEndY = event.touches[0].clientY;
