@@ -178,6 +178,7 @@ document.getElementById("myButton").onclick = function () {
     document.getElementById("myButton").style.display = "none";
     document.getElementById("game").style.display = "contents";
     document.getElementById("body").style.background = "rgb(29, 27, 27)"
+    document.getElementById("gameover").style.display = "none";
     el = document.documentElement
         , rfs =
         el.requestFullScreen
