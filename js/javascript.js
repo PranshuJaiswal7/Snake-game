@@ -69,15 +69,6 @@ function gameEngine() {
 
         })
          
-        document.addEventListener('touchstart', function (event) {
-            el = document.documentElement
-            , rfs =
-            el.requestFullScreen
-            || el.webkitRequestFullScreen
-            || el.mozRequestFullScreen
-            ;
-        rfs.call(el);
-        });
         snakearr = [{ x: 12, y: 10 }]
         // ksound.play();
         score = 0;
@@ -241,6 +232,13 @@ var touchStartX, touchStartY;
 document.addEventListener('touchstart', function (event) {
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
+    el = document.documentElement
+    , rfs =
+    el.requestFullScreen
+    || el.webkitRequestFullScreen
+    || el.mozRequestFullScreen
+    ;
+rfs.call(el);
 });
 
 document.addEventListener('touchmove', function (event) {
