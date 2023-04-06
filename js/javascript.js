@@ -51,7 +51,7 @@ function gameEngine() {
         document.getElementById("game").style.display = "none";
         document.getElementById("gameover").style.display = "block"
         // alert("Game Over! Press any key to play again!");
-        
+
 
 
         // window.addEventListener('keydown', e => {
@@ -75,7 +75,7 @@ function gameEngine() {
         //     rfs.call(el);
 
         // })
-         
+
         snakearr = [{ x: 12, y: 10 }]
         // ksound.play();
         score = 0;
@@ -113,6 +113,10 @@ function gameEngine() {
 
 
     //Moving the snake
+
+
+
+
     for (let i = snakearr.length - 1; i >= 1; i--) {
         snakearr[i] = { ...snakearr[i - 1] };
     }
@@ -174,6 +178,7 @@ else {
 //Keyboard
 
 document.getElementById("myButton").onclick = function () {
+    idir = { x: 0, y: 1 };
     document.getElementById("board").style.display = "grid";
     document.getElementById("myButton").style.display = "none";
     document.getElementById("game").style.display = "contents";
@@ -199,29 +204,101 @@ document.getElementById("myButton").onclick = function () {
 window.requestAnimationFrame(main)
 window.addEventListener('keydown', e => {
     // ksound.play();
-    idir = { x: 0, y: 1 };
+
     movesound.play();
 
     if (e.key === "ArrowUp" || e.key.toLowerCase() === "w") {
+        let tx = 0;
+        let ty = -1
         // console.log("ArrowUp")
-        idir.x = 0;
-        idir.y = -1;
+        let temp1 = snakearr[0].x + tx;
+        let temp2 = snakearr[0].y + ty;
+        if (snakearr.length > 1) {
+            if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                idir.x = 0;
+                idir.y = -1;
+            }
+            else {
+                idir.x = idir.x;
+                idir.y = idir.y;
+            }
+        }
+        else {
+            idir.x = 0;
+            idir.y = -1;
+        }
+
+
+
+
     }
     else if (e.key === "ArrowDown" || e.key.toLowerCase() == "s") {
         // console.log("ArrowDown")
-        idir.x = 0;
-        idir.y = 1;
+        let tx = 0;
+        let ty = 1;
+        // console.log("ArrowUp")
+        let temp1 = snakearr[0].x + tx;
+        let temp2 = snakearr[0].y + ty;
+        if (snakearr.length > 1) {
+            if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                idir.x = 0;
+                idir.y = 1;
+            }
+            else {
+                idir.x = idir.x;
+                idir.y = idir.y;
+            }
+        }
+        else {
+            idir.x = 0;
+            idir.y = 1;
+        }
     }
     else if (e.key === "ArrowLeft" || e.key.toLowerCase() == "a") {
         // console.log("ArrowLeft")
-        idir.x = -1;
-        idir.y = 0;
+
+        let tx = -1;
+        let ty = 0
+        // console.log("ArrowUp")
+        let temp1 = snakearr[0].x + tx;
+        let temp2 = snakearr[0].y + ty;
+        if (snakearr.length > 1) {
+            if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                idir.x = -1;
+                idir.y = 0;
+            }
+            else {
+                idir.x = idir.x;
+                idir.y = idir.y;
+            }
+        }
+        else {
+            idir.x = -1;
+            idir.y = 0;
+        }
     }
     else if (e.key === "ArrowRight" || e.key.toLowerCase() == "d") {
         // console.log("ArrowRight")
-        idir.x = 1;
-        idir.y = 0;
 
+        let tx = 1;
+        let ty = 0
+        // console.log("ArrowUp")
+        let temp1 = snakearr[0].x + tx;
+        let temp2 = snakearr[0].y + ty;
+        if (snakearr.length > 1) {
+            if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                idir.x = 1;
+                idir.y = 0;
+            }
+            else {
+                idir.x = idir.x;
+                idir.y = idir.y;
+            }
+        }
+        else {
+            idir.x = 1;
+            idir.y = 0;
+        }
     }
 
 
@@ -241,12 +318,12 @@ document.addEventListener('touchstart', function (event) {
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
     el = document.documentElement
-    , rfs =
-    el.requestFullScreen
-    || el.webkitRequestFullScreen
-    || el.mozRequestFullScreen
-    ;
-rfs.call(el);
+        , rfs =
+        el.requestFullScreen
+        || el.webkitRequestFullScreen
+        || el.mozRequestFullScreen
+        ;
+    rfs.call(el);
 });
 
 // document.addEventListener('touchend', function (event) {
@@ -269,23 +346,91 @@ document.addEventListener('touchmove', function (event) {
 
     if (Math.abs(dx) > Math.abs(dy)) {
         if (dx > 0) {
-            idir.x = 1;
-            idir.y = 0;
+            let tx = 1;
+            let ty = 0
+            // console.log("ArrowUp")
+            let temp1 = snakearr[0].x + tx;
+            let temp2 = snakearr[0].y + ty;
+            if (snakearr.length > 1) {
+                if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                    idir.x = 1;
+                    idir.y = 0;
+                }
+                else {
+                    idir.x = idir.x;
+                    idir.y = idir.y;
+                }
+            }
+            else {
+                idir.x = 1;
+                idir.y = 0;
+            }
         }
         else if (dx < 0) {
-            idir.x = -1;
-            idir.y = 0;
+            let tx = -1;
+            let ty = 0
+            // console.log("ArrowUp")
+            let temp1 = snakearr[0].x + tx;
+            let temp2 = snakearr[0].y + ty;
+            if (snakearr.length > 1) {
+                if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                    idir.x = -1;
+                    idir.y = 0;
+                }
+                else {
+                    idir.x = idir.x;
+                    idir.y = idir.y;
+                }
+            }
+            else {
+                idir.x = -1;
+                idir.y = 0;
+            }
         }
 
 
     } else {
         if (dy > 0) {
-            idir.y = 1;
-            idir.x = 0;
+            let tx = 0;
+            let ty = 1;
+            // console.log("ArrowUp")
+            let temp1 = snakearr[0].x + tx;
+            let temp2 = snakearr[0].y + ty;
+            if (snakearr.length > 1) {
+                if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                    idir.x = 0;
+                    idir.y = 1;
+                }
+                else {
+                    idir.x = idir.x;
+                    idir.y = idir.y;
+                }
+            }
+            else {
+                idir.x = 0;
+                idir.y = 1;
+            }
         }
         else if (dy < 0) {
-            idir.y = -1;
-            idir.x = 0;
+            let tx = 0;
+            let ty = -1
+            // console.log("ArrowUp")
+            let temp1 = snakearr[0].x + tx;
+            let temp2 = snakearr[0].y + ty;
+            if (snakearr.length > 1) {
+                if (temp1 != snakearr[1].x && temp2 != snakearr[1].y) {
+                    idir.x = 0;
+                    idir.y = -1;
+                }
+                else {
+                    idir.x = idir.x;
+                    idir.y = idir.y;
+                }
+            }
+            else {
+                idir.x = 0;
+                idir.y = -1;
+            }
         }
     }
 
