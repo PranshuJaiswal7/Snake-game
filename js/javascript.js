@@ -44,11 +44,11 @@ function gameEngine() {
     //Part 1 Updating the snake array
     if (isCollide(snakearr)) {
         gameover.play();
-        ksound.pause();
+        // ksound.pause();
         idir = { x: 0, y: 0 }
         alert("Game Over! Press any key to play again!");
         snakearr = [{ x: 12, y: 10 }]
-        ksound.play();
+        // ksound.play();
         score = 0;
         document.getElementById("score").innerHTML = "Score:" + score;
     }
@@ -123,8 +123,8 @@ function gameEngine() {
 
 
 //Main logik
-ksound.play();
-ksound.loop=true;
+// ksound.play();
+// ksound.loop=true;
 
 
 
@@ -168,7 +168,7 @@ rfs.call(el);
 
 window.requestAnimationFrame(main)
 window.addEventListener('keydown', e => {
-    ksound.play();
+    // ksound.play();
     idir = { x: 0, y: 1 };
     movesound.play();
     
