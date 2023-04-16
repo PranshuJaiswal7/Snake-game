@@ -4,7 +4,7 @@ const foodsound = new Audio("music/food.mp3");
 const gameover = new Audio("music/gameover.mp3");
 const movesound = new Audio("music/move.mp3");
 const ksound = new Audio("music/bg.mp3");
-let speed = 15;
+let speed = 7;
 let score = 0;
 let lastpaint = 0;
 let snakearr = [{ x: 12, y: 10 }]
@@ -43,7 +43,7 @@ function isCollide(sarr) {
 function gameEngine() {
     //Part 1 Updating the snake array
     if (isCollide(snakearr)) {
-        gameover.play();
+        // gameover.play();
         // ksound.pause();
         idir = { x: 0, y: 0 }
         document.getElementById("board").style.display = "none";
