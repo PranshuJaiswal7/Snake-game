@@ -9,7 +9,8 @@ let score = 0;
 let lastpaint = 0;
 let snakearr = [{ x: 12, y: 10 }]
 let food = { x: 10, y: 5 }
-//game function
+//game function for doing this
+
 function main(ctime) {
 
     window.requestAnimationFrame(main)
